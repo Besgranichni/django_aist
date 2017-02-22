@@ -1,0 +1,95 @@
+/* development */
+
+html, body {
+	height: 100%;
+	width: 100%;
+}
+
+* {
+	outline : 1px solid #DCDCDC; 
+	padding: 0 ;
+	position: static ;
+	min-height: auto ;
+}
+
+
+.flex-container * { padding: 0 !important; }
+.flex-container>:not([class~='no-padding']) { padding: 1% 0 0 0 !important; }
+.flex-container * * {
+	border: black solid 2px;
+	border-color: blue;
+	border-radius: 10px;
+}
+
+@media (min-width: 768px) {
+
+.flex-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 100%; }
+.flex-container * { padding: 0 !important; }
+.flex-container>:not([class~='no-padding']) { padding: 1% 0 0 0 !important; }
+.flex-container>* {	flex: 1; }
+
+
+.flex-col { display: flex;	flex-direction: column; justify-content: center; }	/* flex col */
+.flex-1-col { display: flex; flex-direction: column; justify-content: center; }	/* flex col with full filling elements  */
+	.flex-1-col>* {	flex: 1; }
+.flex-row {	display: flex; justify-content: center; }	/* pretty same for rows */
+.flex-1-row { display: flex; justify-content: center; }
+	.flex-1-row>* { flex: 1; }
+
+
+.flex-table { display: flex; }	/* container class for flex table, use structure alike '<flextable> <column> <elem></elem> </column> </flextable>' */	
+	.flex-table>* { display: flex; flex-direction: column; }
+.flex-1-table { display: flex; }	/* same to flex-table but with full filling columns and elements */
+	.flex-1-table>* { display: flex; flex-direction: column;  }
+		.flex-1-table *>* {	flex: 1; }	
+
+.flex-row-table { display: flex; flex-direction: column; }	/* container class for flex table, use structure alike '<flextable> <row> <elem></elem> </row> </flextable>' */	
+	.flex-row-table>* { display: flex; flex: 1; }
+.flex-1-row-table { display: flex; flex-wrap: wrap; }	/* same to flex-row-table but with full filling rowumns and elements */
+	.flex-1-row-table>* { display: flex; flex-basis: 100%; }
+		.flex-1-row-table *>* {	flex: 1; }
+
+
+.indent-x>:not([class*='no-indent']):not(:first-child) {	/* set indent for every element except first in '.indent' container that has no class *no-indent* */
+	margin-left: 10px; }
+.indent-y>:not([class*='no-indent']):not(:first-child) {	/* set indent for every element except first in '.indent' container that has no class *no-indent* */
+	margin-top: 10px; }
+
+
+/* set x indent to all tables columns and elements in rows */
+.flex-row>:not([class~='no-indent']):not(:first-child),
+.flex-1-row>:not([class~='no-indent']):not(:first-child),
+.flex-table>:not([class~='no-indent']):not(:first-child),
+.flex-1-table>:not([class~='no-indent']):not(:first-child),
+.flex-row-table>*>:not([class~='no-indent']):not(:first-child),
+.flex-1-row-table>*>:not([class~='no-indent']):not(:first-child) {
+	margin-left: 10px; }
+}
+/* set x indent to all tables elements and elements in columns */
+.flex-col>:not([class~='no-indent']):not(:first-child),
+.flex-1-col>:not([class~='no-indent']):not(:first-child),
+.flex-row-table>:not([class~='no-indent']):not(:first-child),
+.flex-1-row-table>:not([class~='no-indent']):not(:first-child),
+.flex-table>*>:not([class~='no-indent']):not(:first-child),
+.flex-1-table>*>:not([class~='no-indent']):not(:first-child) { 
+	margin-top: 10px; }
+
+
+.flex-extend-10 { flex-basis: 10%; }	/* say to element to take more place in any flexible container by value% */
+.flex-extend-20 { flex-basis: 20%; }	/* it's not to SET height or width, */
+.flex-extend-30 { flex-basis: 30%; }	/* but infrom how much more place it should take relative to the other elements in this container */
+.flex-extend-40 { flex-basis: 40%; }	/* height for columns, width for rows */
+.flex-extend-50 { flex-basis: 50%; }
+.flex-extend-60 { flex-basis: 60%; }
+.flex-extend-70 { flex-basis: 70%; }
+.flex-extend-80 { flex-basis: 80%; }
+.flex-extend-90 { flex-basis: 90%; }
+.flex-extend-100 { flex-basis: 100%; }
+
+} /* @media (min-width: 768px) */
